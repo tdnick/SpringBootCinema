@@ -10,9 +10,11 @@ import java.util.List;
 @Service
 public class TicketService {
     private final TicketRepository ticketRepository;
+    private final ReservationService reservationService;
 
-    public TicketService(TicketRepository ticketRepository){
+    public TicketService(TicketRepository ticketRepository, ReservationService reservationService){
         this.ticketRepository = ticketRepository;
+        this.reservationService = reservationService;
     }
 
     public List<Ticket> getAllTickets() {
@@ -22,6 +24,7 @@ public class TicketService {
     public Ticket saveTicket(Ticket ticket){
         ticket.setPrice(calculateTicketPrice(ticket));
         Ticket newTicket = ticketRepository.save(ticket);
+        reservationService.addTicketToReservation(ticket);
         return newTicket;
     }
 
