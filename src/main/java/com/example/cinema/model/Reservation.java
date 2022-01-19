@@ -21,7 +21,7 @@ public class Reservation {
     @JoinColumn(name = "screening_id")
     private Screening screening;
 
-    @OneToMany(mappedBy = "reservation", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "reservation", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     private List<Ticket> tickets = new ArrayList<>();
 
     private double totalPrice;
