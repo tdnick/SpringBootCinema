@@ -51,7 +51,7 @@ In order to facilitate communication with the database, DTOs were defined for th
 - Add new and view all clients
 - Add new and view all movies
 - Add new, view by ID, view all and delete reservations
-- Add new and update existing screenings
+- Add new, view all and update existing screenings
 - Add new and view all tickets
 
 - Via ClientService:
